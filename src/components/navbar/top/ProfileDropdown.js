@@ -4,14 +4,28 @@ import { Link } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
 import team3 from 'assets/img/team/3.jpg';
 import Avatar from 'components/common/Avatar';
+import PropTypes from 'prop-types';
+
+const CustomToggle = React.forwardRef((props, ref) => (
+  <a
+    href={props.to}
+    ref={ref}
+    onClick={e => {
+      e.preventDefault();
+      props.onClick(e);
+    }}
+  >
+    {props.children}
+  </a>
+));
 
 const ProfileDropdown = () => {
   return (
     <Dropdown navbar={true} as="li">
       <Dropdown.Toggle
         bsPrefix="toggle"
-        as={Link}
-        to="#!"
+        as={CustomToggle}
+        to="#"
         className="pe-0 nav-link"
       >
         <Avatar src={team3} />
@@ -40,6 +54,12 @@ const ProfileDropdown = () => {
       </Dropdown.Menu>
     </Dropdown>
   );
+};
+
+CustomToggle.propTypes = {
+  to: PropTypes.string,
+  children: PropTypes.node,
+  onClick: PropTypes.func
 };
 
 export default ProfileDropdown;

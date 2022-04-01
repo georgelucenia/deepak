@@ -6,7 +6,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const Error404 = () => {
   return (
-    <Card className="text-center">
+    <Card className="text-center mt-5 mx-4">
       <Card.Body className="p-5">
         <div className="display-1 text-300 fs-error">404</div>
         <p className="lead mt-4 text-800 font-sans-serif fw-semi-bold">
@@ -16,10 +16,10 @@ const Error404 = () => {
         <p>
           Make sure the address is correct and that the page hasn't moved. If
           you think this is a mistake,
-          <a href="mailto:info@exmaple.com" className="ms-1">
+          {/* <a href="mailto:info@exmaple.com" className="ms-1">
             contact us
           </a>
-          .
+          . */}
         </p>
         <Link className="btn btn-primary btn-sm mt-3" to="/">
           <FontAwesomeIcon icon={faHome} className="me-2" />

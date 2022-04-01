@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ProductContext } from 'context/Context';
+// import { ProductContext } from 'context/Context';
 import { getProductsQuantity } from 'helpers/utils';
 
 const CartNotification = () => {
-  const {
-    productsState: { cartItems }
-  } = useContext(ProductContext);
+  // const {
+  //   productsState: { cartItems }
+  // } = useContext(ProductContext);
 
   return (
     <Nav.Item>
@@ -18,11 +18,11 @@ const CartNotification = () => {
         to="/e-commerce/shopping-cart"
         className={classNames('px-0', {
           'notification-indicator notification-indicator-warning notification-indicator-fill':
-            getProductsQuantity(cartItems)
+            getProductsQuantity([])
         })}
       >
         <span className="notification-indicator-number">
-          {getProductsQuantity(cartItems)}
+          {getProductsQuantity([])}
         </span>
         <FontAwesomeIcon
           icon="shopping-cart"

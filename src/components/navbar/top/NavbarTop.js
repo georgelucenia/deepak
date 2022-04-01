@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import classNames from 'classnames';
 import AppContext from 'context/Context';
-import Logo from 'components/common/Logo';
 import SearchBox from './SearchBox';
-import NavbarTopDropDownMenus from './NavbarTopDropDownMenus';
+// import NavbarTopDropDownMenus from './NavbarTopDropDownMenus';
 import { navbarBreakPoint, topNavbarBreakpoint } from 'config';
 import autoCompleteInitialItem from 'data/autocomplete/autocomplete';
-import TopNavRightSideNavItem from './TopNavRightSideNavItem';
+// import TopNavRightSideNavItem from './TopNavRightSideNavItem';
 import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const NavbarTop = () => {
   const {
@@ -43,16 +43,20 @@ const NavbarTop = () => {
 
   return (
     <Navbar
-      className={classNames('navbar-glass  fs--1 navbar-top sticky-kit', {
-        // 'navbar-glass-shadow': showDropShadow
-        'navbar-glass-shadow': showDropShadow && !isChat
-      })}
+      className={classNames(
+        'navbar-glass  fs--1 navbar-top sticky-kit d-flex justify-content-end',
+        {
+          // 'navbar-glass-shadow': showDropShadow
+          'navbar-glass-shadow': showDropShadow && !isChat
+        }
+      )}
       expand={
         navbarPosition === 'top' || navbarPosition === 'combo'
           ? topNavbarBreakpoint
           : true
       }
     >
+      {/* <Logo at="navbar-top" width={35} id="topLogo" /> */}
       <Navbar.Toggle
         className={classNames('toggle-icon-wrapper me-md-3 me-2', {
           'd-lg-none': navbarPosition === 'top',
@@ -72,15 +76,77 @@ const NavbarTop = () => {
         </button>
       </Navbar.Toggle>
 
-      <Logo at="navbar-top" width={40} id="topLogo" />
-
       {navbarPosition === 'top' || navbarPosition === 'combo' ? (
         <Navbar.Collapse
           in={navbarCollapsed}
           className="scrollbar pb-3 pb-lg-0"
         >
           <Nav navbar>
-            <NavbarTopDropDownMenus />
+            {/* <NavbarTopDropDownMenus /> */}
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/"
+                onClick={() => {
+                  if (navbarCollapsed) {
+                    handleBurgerMenu();
+                  }
+                }}
+              >
+                Home
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/chart"
+                onClick={() => {
+                  if (navbarCollapsed) {
+                    handleBurgerMenu();
+                  }
+                }}
+              >
+                Chart
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/contact"
+                onClick={() => {
+                  if (navbarCollapsed) {
+                    handleBurgerMenu();
+                  }
+                }}
+              >
+                Contact
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/login"
+                onClick={() => {
+                  if (navbarCollapsed) {
+                    handleBurgerMenu();
+                  }
+                }}
+              >
+                Login
+              </Nav.Link>
+            </Nav.Item>
+            {/* <Nav.Item>
+              <Nav.Link>
+                <div className="theme-control-toggle-label">
+                  <FontAwesomeIcon
+                    icon={isDark ? 'sun' : 'moon'}
+                    className="fs-0"
+                    onClick={() => setConfig('isDark', !isDark)}
+                  />
+                  <span className="ms-2">{!isDark ? 'Dark' : 'Light'}</span>
+                </div>
+              </Nav.Link>
+            </Nav.Item> */}
           </Nav>
         </Navbar.Collapse>
       ) : (
@@ -94,8 +160,6 @@ const NavbarTop = () => {
           </Nav.Item>
         </Nav>
       )}
-
-      <TopNavRightSideNavItem />
     </Navbar>
   );
 };
