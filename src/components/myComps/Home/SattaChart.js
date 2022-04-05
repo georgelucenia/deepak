@@ -1,31 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Table, Row } from 'react-bootstrap';
-import axios from 'axios';
+import { Card, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Loader from 'components/common/Loader';
+import useFetch from 'hooks/useFetch';
 
 const defaultYears = [
   2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013
 ];
 
 const SattaChart = () => {
+  const { data, loading, error } = useFetch(
+    'https://royal-satta.herokuapp.com/api/v1/location'
+  );
   const [locations, setLocations] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  useEffect(() => {
+    if (data) {
+      setLocations(data.data.locations);
+    }
+  }, [data]);
 
   useEffect(() => {
-    axios
-      .get(' https://royal-satta.herokuapp.com/api/v1/location')
-      .then(function ({ data }) {
-        setLocations(data.data.locations);
-        setLoading(false);
-      })
-      .catch(function (error) {
-        console.log(error);
-        setLoading(false);
-        setError(error);
-      });
-  }, []);
+    if (data) {
+      setLocations([]);
+    }
+  }, [error]);
 
   return (
     <Card className="mb-3">

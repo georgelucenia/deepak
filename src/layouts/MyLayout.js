@@ -1,26 +1,20 @@
 import React, { useContext, useEffect } from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
-// import Dashboard from 'components/dashboards/default';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import NavbarTop from 'components/navbar/top/NavbarTop';
-import NavbarVertical from 'components/navbar/vertical/NavbarVertical';
 import AppContext from 'context/Context';
-// import MainRoutes from './MainRoutes';
-// import Footer from 'components/footer/Footer';
 import ProductProvider from 'components/app/e-commerce/ProductProvider';
 import classNames from 'classnames';
 import Home from 'components/myComps/Home/home';
 import Login from 'components/myComps/Login/login';
-import Contact from 'components/myComps/Contact/contact';
-import Chart from 'components/myComps/Chart/chart';
+import AddNewLocationModal from 'components/myComps/Location/AddNewLocationModal';
+import UpdateLocationModal from 'components/myComps/Location/UpdateLocationModal';
 import MyFooter from 'data/footer/MyFooter';
 
 const MyLayout = () => {
   const { hash, pathname } = useLocation();
-  // const isKanban = pathname.includes('kanban');
-  // const isChat = pathname.includes('chat');
 
   const {
-    config: { isFluid, navbarPosition }
+    config: { isFluid }
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -41,20 +35,25 @@ const MyLayout = () => {
 
   return (
     <div className={isFluid ? 'container-fluid' : 'container'}>
-      {(navbarPosition === 'vertical' || navbarPosition === 'combo') && (
-        <NavbarVertical />
-      )}
       <ProductProvider>
         <div className={classNames('content pb-2')}>
           <NavbarTop />
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/chart" exact component={Chart} />
-            <Route path="/contact" exact component={Contact} />
             <Route path="/login" exact component={Login} />
-            {/* <MainRoutes /> */}
+            <Route path="/add-location" exact component={AddNewLocationModal} />
+            <Route
+              path="/update-location"
+              exact
+              component={UpdateLocationModal}
+            />
+            <Route
+              path="/update-result"
+              exact
+              component={UpdateLocationModal}
+            />
           </Switch>
-          <MyFooter />
+          {pathname === '/' && <MyFooter />}
         </div>
       </ProductProvider>
     </div>

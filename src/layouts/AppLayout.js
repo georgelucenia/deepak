@@ -3,8 +3,8 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import is from 'is_js';
 import MyLayout from './MyLayout';
 
-import { toast, ToastContainer } from 'react-toastify';
-import { CloseButton, Fade } from 'components/common/Toast';
+import { ToastContainer } from 'react-toastify';
+// import { CloseButton, Fade } from 'components/common/Toast';
 import Error404 from 'components/errors/Error404';
 
 const Layout = () => {
@@ -30,10 +30,15 @@ const Layout = () => {
         <Redirect to="/errors/404" />
       </Switch>
       <ToastContainer
-        transition={Fade}
-        closeButton={CloseButton}
+        position="bottom-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
         closeOnClick
-        position={toast.POSITION.BOTTOM_LEFT}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
       />
     </>
   );

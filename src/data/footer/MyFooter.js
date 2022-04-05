@@ -6,12 +6,12 @@ const MyFooter = () => {
     <div className="mt-5">
       <h5 className="text-uppercase text-dark opacity-85 mb-3">Disclaimer</h5>
       <p className="text-600">
-        Realkings.com is a non-commercial website. Viewing this website is your
+        Royalsatta.com is a non-commercial website. Viewing this website is your
         own risk, all the information shown on website is sponsored and we warn
         you that satta may be banned or illegal in your country. We are not
         responsible for any issues or scam. We respect all country rules/laws.
         If you not agree with our site disclaimer. Please quit our site right
-        now. Thank you !.
+        now.
       </p>
       <section className=" bg-dark py-0 text-center fs--1 light">
         <hr className="my-0 border-600 opacity-25" />

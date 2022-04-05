@@ -2,19 +2,39 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { Button, Form } from 'react-bootstrap';
+import Loader from 'components/common/Loader';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-const MyLoginForm = ({ hasLabel }) => {
-  // State
+const MyLoginForm = () => {
+  const history = useHistory();
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    remember: false
+    username: '',
+    password: ''
   });
 
-  // Handler
-  const handleSubmit = e => {
-    e.preventDefault();
-    toast.success(`Logged in as ${formData.email}`);
+  const [loading, setLoading] = useState(false);
+
+  const onLoginHandler = () => {
+    if (formData.username !== '' && formData.password !== '') {
+      setLoading(true);
+      axios
+        .post('http://127.0.0.1:4000/api/v1/login', formData)
+        .then(() => {
+          history.push('/');
+          localStorage.setItem('dsfajndjn', 'asddsa');
+          toast.success('Login Successful.');
+        })
+        .catch(err => {
+          toast.error('Invalid Credentials');
+          console.log(err);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      toast.error('Invalid Details Entered.');
+    }
   };
 
   const handleFieldChange = e => {
@@ -25,22 +45,22 @@ const MyLoginForm = ({ hasLabel }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form>
       <Form.Group className="mb-3">
-        {hasLabel && <Form.Label>Email address</Form.Label>}
+        <Form.Label>Username</Form.Label>
         <Form.Control
-          placeholder={!hasLabel ? 'Email address' : ''}
-          value={formData.email}
-          name="email"
+          placeholder="Username"
+          value={formData.username}
+          name="username"
           onChange={handleFieldChange}
-          type="email"
+          type="text"
         />
       </Form.Group>
 
       <Form.Group className="mb-2">
-        {hasLabel && <Form.Label>Password</Form.Label>}
+        <Form.Label>Password</Form.Label>
         <Form.Control
-          placeholder={!hasLabel ? 'Password' : ''}
+          placeholder="Password"
           value={formData.password}
           name="password"
           onChange={handleFieldChange}
@@ -48,28 +68,19 @@ const MyLoginForm = ({ hasLabel }) => {
         />
       </Form.Group>
 
-      {/* <Form.Group> */}
       <Button
-        type="submit"
-        color="primary"
+        variant="primary"
         className="mt-3 w-100"
-        disabled={!formData.email || !formData.password}
+        disabled={loading}
+        onClick={onLoginHandler}
       >
-        Log in
+        <div className="d-flex justify-content-center align-items-center">
+          {loading && <Loader className="m-0 p-0" size="sm" />}
+          Log in
+        </div>
       </Button>
-      {/* </Form.Group> */}
     </Form>
   );
-};
-
-MyLoginForm.propTypes = {
-  layout: PropTypes.string,
-  hasLabel: PropTypes.bool
-};
-
-MyLoginForm.defaultProps = {
-  layout: 'simple',
-  hasLabel: false
 };
 
 export default MyLoginForm;

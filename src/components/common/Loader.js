@@ -12,7 +12,7 @@ const Loader = props => (
 Loader.propTypes = { ...Spinner.propTypes };
 
 Loader.defaultProps = {
-  size: 'md',
+  size: 'sm',
   variant: 'dark'
 };
 

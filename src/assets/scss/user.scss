@@ -7,9 +7,14 @@
 @import 'user-variables';
 @import 'theme/variables';
 @import '~bootstrap/scss/variables';
+@import 'my-scss';
 
 //
 //
 // user.scss
 //
 // Place your own theme CSS or SCSS rules below this line, these rules will override any Bootstrap and theme variables.
+
+.min-width-150px {
+  min-width: 150px !important;
+}

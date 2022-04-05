@@ -27,7 +27,7 @@ const NavbarDropdown = ({ title, children }) => {
         }
       }}
     >
-      <Dropdown.Toggle as={Link} to="#!" className="nav-link fw-semi-bold">
+      <Dropdown.Toggle as={Link} to="#" className="nav-link fw-semi-bold">
         {capitalize(title)}
       </Dropdown.Toggle>
       <Dropdown.Menu className="dropdown-menu-card mt-0">
@@ -41,17 +41,22 @@ const NavbarDropdown = ({ title, children }) => {
         >
           <Card.Body
             className={classNames('scrollbar max-h-dropdown', {
-              'p-0 py-2': title === 'dashboard' || title === 'documentation'
+              'p-0 py-2':
+                title === 'dashboard' ||
+                title === 'documentation' ||
+                title === 'admin'
             })}
           >
-            {title !== 'dashboard' && title !== 'documentation' && (
-              <img
-                src={AuthCornerImage}
-                alt=""
-                className="img-dropdown"
-                width={130}
-              />
-            )}
+            {title !== 'dashboard' &&
+              title !== 'documentation' &&
+              title !== 'admin' && (
+                <img
+                  src={AuthCornerImage}
+                  alt=""
+                  className="img-dropdown"
+                  width={130}
+                />
+              )}
             {children}
           </Card.Body>
         </Card>
