@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { Button, Form } from 'react-bootstrap';
 import Loader from 'components/common/Loader';

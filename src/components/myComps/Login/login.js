@@ -2,7 +2,6 @@ import React from 'react';
 import MyLoginForm from './MyLoginForm';
 import Flex from 'components/common/Flex';
 import { Row, Col } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 
 const Login = () => {
   return (
