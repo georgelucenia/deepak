@@ -98,7 +98,9 @@ const Home = () => {
                           </td>
                           <td>
                             <span className="text-dark fs-1 h5">
-                              {location?.yesterday || '--'}
+                              {location?.yesterday && location?.yesterday != '0'
+                                ? location?.yesterday
+                                : '-'}
                             </span>
                           </td>
                           <td>

@@ -101,7 +101,9 @@ const PreviousMonthChart = () => {
                               dayjs(date).format('DD-MM-YYYY') && (
                               <td key={result._id}>
                                 <span className="text-dark h5 fs-0 text-uppercase">
-                                  {result.result || '-'}
+                                  {result.result && result.result != '0'
+                                    ? result.result
+                                    : '-'}
                                 </span>
                               </td>
                             )}
