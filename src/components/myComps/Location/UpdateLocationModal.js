@@ -162,7 +162,7 @@ const UpdateLocationModal = ({ history, location }) => {
                   onChange={e => {
                     setSelectedLocation(p => ({
                       ...p,
-                      result: parseInt(e.target.value)
+                      result: e.target.value
                     }));
                   }}
                 />

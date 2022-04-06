@@ -48,6 +48,7 @@ const NavbarTop = () => {
     window.addEventListener('scroll', setDropShadow);
     return () => window.removeEventListener('scroll', setDropShadow);
   }, []);
+
   useEffect(() => {
     setIsAdmin(localStorage.getItem('dsfajndjn') === 'asddsa');
   });
@@ -134,10 +135,7 @@ const NavbarTop = () => {
                 </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => {
-                    if (navbarCollapsed) {
-                      handleBurgerMenu();
-                      onLogout();
-                    }
+                    onLogout();
                   }}
                 >
                   Log Out

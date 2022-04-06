@@ -56,7 +56,7 @@ const PreviousMonthChart = () => {
   }, [error]);
 
   return (
-    <Card className="mb-3">
+    <Card className="mb-5">
       <Card.Header className="d-flex justify-content-center align-items-center fw-bold fs-4">
         {months[new Date().getMonth() - 1] + ` Chart`}
       </Card.Header>

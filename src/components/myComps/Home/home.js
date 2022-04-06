@@ -32,9 +32,9 @@ const Home = () => {
 
   return (
     <>
-      <Row className="g-3 mb-3">
+      <Row className="g-3 mb-5">
         <Col xs={12}>
-          <Card className="mb-3">
+          <Card className="mb-5">
             <Card.Body as={Flex} alignItems="center" justifyContent="center">
               <h2
                 className={classNames(
@@ -48,6 +48,9 @@ const Home = () => {
           <Card className="mb-3">
             {!loading ? (
               <>
+                <Card.Header className="d-flex justify-content-center align-items-center fw-bold fs-4">
+                  Result
+                </Card.Header>
                 {locations && locations.length > 0 ? (
                   <Table bordered responsive className="m-0 text-center">
                     <colgroup>
@@ -124,8 +127,12 @@ const Home = () => {
       {/* <SattaChart /> */}
       {locations && locations.length > 0 && (
         <>
-          <CurrentMonthChart />
-          <PreviousMonthChart />
+          <div className="mb-5">
+            <CurrentMonthChart />
+          </div>
+          <div className="mb-5">
+            <PreviousMonthChart />
+          </div>
         </>
       )}
     </>
