@@ -2,16 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 import classNames from 'classnames';
 import AppContext from 'context/Context';
-// import PropTypes from 'prop-types';
-// import NavbarTopDropDownMenus from './NavbarTopDropDownMenus';
 import { navbarBreakPoint, topNavbarBreakpoint } from 'config';
-// import TopNavRightSideNavItem from './TopNavRightSideNavItem';
 import { useLocation, useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import NavbarDropdown from './NavbarDropdown';
-// import AddNewLocationModal from 'components/myComps/Location/AddNewLocationModal';
-// import UpdateLocationModal from 'components/myComps/Location/UpdateLocationModal';
-// import UpdateResultModal from 'components/myComps/Result/UpdateResultModal';
+import { toast } from 'react-toastify';
 
 const NavbarTop = () => {
   const {
@@ -45,6 +40,7 @@ const NavbarTop = () => {
   const onLogout = () => {
     history.push('/');
     localStorage.removeItem('dsfajndjn');
+    toast.success('Logged out successfully');
     setIsAdmin(false);
   };
 
@@ -54,7 +50,7 @@ const NavbarTop = () => {
   }, []);
   useEffect(() => {
     setIsAdmin(localStorage.getItem('dsfajndjn') === 'asddsa');
-  }, [localStorage]);
+  });
 
   return (
     <>
