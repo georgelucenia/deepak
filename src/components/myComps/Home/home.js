@@ -55,7 +55,7 @@ const Home = () => {
               </h2>
             </Card.Body>
           </Card>
-          {recentResult && recentResult?.result && (
+          {recentResult?.result && (
             <Card className="mb-5">
               <Card.Body className="text-center">
                 <h2
@@ -77,7 +77,7 @@ const Home = () => {
                     'font-sans-serif text-white dark__text-white fs--1'
                   )}
                 >
-                  {recentResult?.result}
+                  {recentResult?.result?.result}
                 </h2>
               </Card.Body>
             </Card>
