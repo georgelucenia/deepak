@@ -9,7 +9,9 @@ import { toast } from 'react-toastify';
 const UpdateLocationModal = ({ history, location }) => {
   const [locations, setLocations] = useState([]);
   const [updating, setUpdating] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState({});
+  const [selectedLocation, setSelectedLocation] = useState({
+    date: new Date().toDateString()
+  });
   const isUpdatingResult = location?.pathname === '/update-result';
 
   const updateLocationHandler = () => {
@@ -38,7 +40,8 @@ const UpdateLocationModal = ({ history, location }) => {
   const updateResultHandler = () => {
     const newData = {
       locationId: selectedLocation['locationId'],
-      result: selectedLocation['result']
+      result: selectedLocation['result'],
+      date: selectedLocation['date']
     };
 
     // console.log(newData);
@@ -152,21 +155,38 @@ const UpdateLocationModal = ({ history, location }) => {
               </>
             )}
             {isUpdatingResult && (
-              <Form.Group className="mb-3">
-                <Form.Label>Result</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Result"
-                  name="result"
-                  value={selectedLocation?.result || ''}
-                  onChange={e => {
-                    setSelectedLocation(p => ({
-                      ...p,
-                      result: e.target.value
-                    }));
-                  }}
-                />
-              </Form.Group>
+              <>
+                <Form.Group className="mb-3">
+                  <Form.Label>Result</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Result"
+                    name="result"
+                    value={selectedLocation?.result || ''}
+                    onChange={e => {
+                      setSelectedLocation(p => ({
+                        ...p,
+                        result: e.target.value
+                      }));
+                    }}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Date</Form.Label>
+                  <Form.Control
+                    type="date"
+                    placeholder="Date"
+                    name="date"
+                    value={selectedLocation?.date || ''}
+                    onChange={e => {
+                      setSelectedLocation(p => ({
+                        ...p,
+                        date: e.target.value
+                      }));
+                    }}
+                  />
+                </Form.Group>
+              </>
             )}
 
             <Button

@@ -12,7 +12,11 @@ const Home = () => {
   const { data, loading, error } = useFetch(
     'https://royal-satta.herokuapp.com/api/v1/result/getTodayResult'
   );
+  const { data: recentResultData } = useFetch(
+    'https://royal-satta.herokuapp.com/api/v1/result/getRecentResult'
+  );
   const [locations, setLocations] = useState([]);
+  const [recentResult, setRecentResult] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,6 +27,12 @@ const Home = () => {
       setLocations(data.data);
     }
   }, [data]);
+
+  useEffect(() => {
+    if (recentResultData) {
+      setRecentResult(recentResultData.data);
+    }
+  }, [recentResultData]);
 
   useEffect(() => {
     if (data) {
@@ -45,6 +55,33 @@ const Home = () => {
               </h2>
             </Card.Body>
           </Card>
+          {recentResult && recentResult?.result && (
+            <Card className="mb-5">
+              <Card.Body className="text-center">
+                <h2
+                  className={classNames(
+                    'font-sans-serif text-white dark__text-white fs-2'
+                  )}
+                >
+                  {recentResult?.name}
+                </h2>
+                <h2
+                  className={classNames(
+                    'font-sans-serif text-white dark__text-white fs-0'
+                  )}
+                >
+                  ( {recentResult?.timeLabel} )
+                </h2>
+                <h2
+                  className={classNames(
+                    'font-sans-serif text-white dark__text-white fs--1'
+                  )}
+                >
+                  {recentResult?.result}
+                </h2>
+              </Card.Body>
+            </Card>
+          )}
           <Card className="mb-3">
             {!loading ? (
               <>
