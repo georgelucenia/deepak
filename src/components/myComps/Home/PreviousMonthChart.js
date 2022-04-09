@@ -39,7 +39,7 @@ const datesArray = () => {
 
 const PreviousMonthChart = () => {
   const { data, loading, error } = useFetch(
-    'https://royal-satta.herokuapp.com/api/v1/result/getPreviousMonthResult'
+    `${process.env.APIURL}/result/getPreviousMonthResult`
   );
   const [locations, setLocations] = useState([]);
 

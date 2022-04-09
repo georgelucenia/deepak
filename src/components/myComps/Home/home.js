@@ -10,10 +10,10 @@ import PreviousMonthChart from './PreviousMonthChart';
 const Home = () => {
   // https://royal-satta.herokuapp.com
   const { data, loading, error } = useFetch(
-    'https://royal-satta.herokuapp.com/api/v1/result/getTodayResult'
+    `${process.env.APIURL}/getTodayResult`
   );
   const { data: recentResultData } = useFetch(
-    'https://royal-satta.herokuapp.com/api/v1/result/getRecentResult'
+    `${process.env.APIURL}/getRecentResult`
   );
   const [locations, setLocations] = useState([]);
   const [recentResult, setRecentResult] = useState(null);
@@ -85,70 +85,73 @@ const Home = () => {
           <Card className="mb-3">
             {!loading ? (
               <>
-                <Card.Header className="d-flex justify-content-center align-items-center fw-bold fs-4">
-                  Result
-                </Card.Header>
                 {locations && locations.length > 0 ? (
-                  <Table bordered responsive className="m-0 text-center">
-                    <colgroup>
-                      <col className="bg-soft-primary" />
-                      <col />
-                      <col />
-                    </colgroup>
-                    <thead>
-                      <tr>
-                        <th
-                          scope="col"
-                          className="bg-soft-primary text-dark semi-bold"
-                        >
-                          Location
-                        </th>
-                        <th
-                          scope="col"
-                          className="bg-soft-primary text-dark semi-bold"
-                        >
-                          Yesterday
-                        </th>
-                        <th
-                          scope="col"
-                          className="bg-soft-primary text-dark semi-bold"
-                        >
-                          Today
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="align-middle text-center">
-                      {locations.map(location => (
-                        <tr key={location?._id}>
-                          <td>
-                            <span className="text-dark fs-0 h5">
-                              {location?.name}
-                            </span>
-                            <br />
-                            <span className="text-dark semi-bold">
-                              {location?.timeLabel || '01:30 PM'}
-                            </span>
-                            <br />
-                            <span className="text-dark fs--1 mt-2">
-                              Record Chart
-                            </span>
-                          </td>
-                          <td>
-                            <span className="text-dark fs-1 h5">
-                              {location?.yesterday && location?.yesterday != '0'
-                                ? location?.yesterday
-                                : '-'}
-                            </span>
-                          </td>
-                          <td>
-                            <span className="text-dark fs-1 h5">
-                              {location?.today || 'Wait'}
-                            </span>
-                          </td>
+                  <>
+                    <Card.Header className="d-flex justify-content-center align-items-center fw-bold fs-4">
+                      Result
+                    </Card.Header>
+                    <Table bordered responsive className="m-0 text-center">
+                      <colgroup>
+                        <col className="bg-soft-primary" />
+                        <col />
+                        <col />
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th
+                            scope="col"
+                            className="bg-soft-primary text-dark semi-bold"
+                          >
+                            Location
+                          </th>
+                          <th
+                            scope="col"
+                            className="bg-soft-primary text-dark semi-bold"
+                          >
+                            Yesterday
+                          </th>
+                          <th
+                            scope="col"
+                            className="bg-soft-primary text-dark semi-bold"
+                          >
+                            Today
+                          </th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </Table>
+                      </thead>
+                      <tbody className="align-middle text-center">
+                        {locations.map(location => (
+                          <tr key={location?._id}>
+                            <td>
+                              <span className="text-dark fs-0 h5">
+                                {location?.name}
+                              </span>
+                              <br />
+                              <span className="text-dark semi-bold">
+                                {location?.timeLabel || '01:30 PM'}
+                              </span>
+                              <br />
+                              <span className="text-dark fs--1 mt-2">
+                                Record Chart
+                              </span>
+                            </td>
+                            <td>
+                              <span className="text-dark fs-1 h5">
+                                {location?.yesterday &&
+                                location?.yesterday != '0'
+                                  ? location?.yesterday
+                                  : '-'}
+                              </span>
+                            </td>
+                            <td>
+                              <span className="text-dark fs-1 h5">
+                                {location?.today || 'Wait'}
+                              </span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  </>
                 ) : (
                   <Row className="py-5 p-0 m-0 my-6 text-center">
                     <h1 className="fs-4">No Locations Yet</h1>

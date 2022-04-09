@@ -9,9 +9,7 @@ const defaultYears = [
 ];
 
 const SattaChart = () => {
-  const { data, loading, error } = useFetch(
-    'https://royal-satta.herokuapp.com/api/v1/location'
-  );
+  const { data, loading, error } = useFetch(`${process.env.APIURL}/location`);
   const [locations, setLocations] = useState([]);
   useEffect(() => {
     if (data) {

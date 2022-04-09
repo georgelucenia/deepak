@@ -18,7 +18,7 @@ const MyLoginForm = () => {
     if (formData.username !== '' && formData.password !== '') {
       setLoading(true);
       axios
-        .post('https://royal-satta.herokuapp.com/api/v1/login', formData)
+        .post(`${process.env.APIURL}/login`, formData)
         .then(() => {
           history.push('/');
           localStorage.setItem('dsfajndjn', 'asddsa');
