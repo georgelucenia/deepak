@@ -47,7 +47,7 @@ const UpdateLocationModal = ({ history, location }) => {
     // console.log(newData);
     setUpdating(true);
     axios
-      .post(`${process.env.APIURL}/result/update`, newData)
+      .post(`https://royal-satta.herokuapp.com/api/v1/result/update`, newData)
       .then(() => {
         history.push('/');
         toast.success('Result Updated');
@@ -61,7 +61,9 @@ const UpdateLocationModal = ({ history, location }) => {
       });
   };
 
-  const { data, loading, error } = useFetch(`${process.env.APIURL}/location`);
+  const { data, loading, error } = useFetch(
+    `https://royal-satta.herokuapp.com/api/v1/location`
+  );
 
   useEffect(() => {
     if (data) {
