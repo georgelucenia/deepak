@@ -55,16 +55,16 @@ const Home = () => {
               </h2>
             </Card.Body>
           </Card>
-          {recentResult?.result && (
-            <Card className="mb-5 bg-gradient bg-warning">
+          {recentResult?.result?.result && (
+            <Card className="mb-5 bg-dark">
               <Card.Body className="text-center">
-                <h2 className={classNames('text-dark fs-2')}>
+                <h2 className={classNames('text-light fs-2')}>
                   {recentResult?.name}
                 </h2>
-                <h2 className={classNames('text-dark fs-0')}>
+                <h2 className={classNames('text-light fs-0')}>
                   ( {recentResult?.timeLabel} )
                 </h2>
-                <h2 className={classNames('text-dark fs-2')}>
+                <h2 className={classNames('text-light fs-2')}>
                   {recentResult?.result?.result}
                 </h2>
               </Card.Body>
