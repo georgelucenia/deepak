@@ -23,7 +23,7 @@ const UpdateLocationModal = ({ history, location }) => {
     console.log(selectedLocation);
     setUpdating(true);
     axios
-      .post(`${process.env.APIURL}/location/update`, newData)
+      .post(`https://royal-satta.herokuapp.com/api/v1/location/update`, newData)
       .then(() => {
         history.push('/');
         toast.success('Location Updated');

@@ -10,10 +10,9 @@ const AddNewLocationModal = ({ history }) => {
   const [locationData, setLocationData] = useState({ name: '', timeLabel: '' });
 
   const addLocationHandler = () => {
-    console.log(process.env.APIURL);
     setLoading(true);
     axios
-      .post(`${process.env.APIURL}/location`, locationData)
+      .post(`https://royal-satta.herokuapp.com/api/v1/location`, locationData)
       .then(() => {
         history.push('/');
         toast.success('New Location Added');

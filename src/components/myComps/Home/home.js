@@ -10,10 +10,10 @@ import PreviousMonthChart from './PreviousMonthChart';
 const Home = () => {
   // https://royal-satta.herokuapp.com
   const { data, loading, error } = useFetch(
-    `${process.env.APIURL}/getTodayResult`
+    `https://royal-satta.herokuapp.com/api/v1/result/getTodayResult`
   );
   const { data: recentResultData } = useFetch(
-    `${process.env.APIURL}/getRecentResult`
+    `https://royal-satta.herokuapp.com/api/v1/result/getRecentResult`
   );
   const [locations, setLocations] = useState([]);
   const [recentResult, setRecentResult] = useState(null);
@@ -122,12 +122,12 @@ const Home = () => {
                         {locations.map(location => (
                           <tr key={location?._id}>
                             <td>
-                              <span className="text-dark fs-0 h5">
+                              <span className="text-dark fs-0 h5 text-uppercase">
                                 {location?.name}
                               </span>
                               <br />
-                              <span className="text-dark semi-bold">
-                                {location?.timeLabel || '01:30 PM'}
+                              <span className="text-dark semi-bold text-uppercase">
+                                {location?.timeLabel}
                               </span>
                               <br />
                               <span className="text-dark fs--1 mt-2">
