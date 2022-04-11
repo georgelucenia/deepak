@@ -112,6 +112,28 @@ const NavbarTop = () => {
                 </Dropdown.Item>
                 <Dropdown.Item
                   as={Link}
+                  to="/update-location"
+                  onClick={() => {
+                    if (navbarCollapsed) {
+                      handleBurgerMenu();
+                    }
+                  }}
+                >
+                  Update Location
+                </Dropdown.Item>
+                <Dropdown.Item
+                  as={Link}
+                  to="/delete-location"
+                  onClick={() => {
+                    if (navbarCollapsed) {
+                      handleBurgerMenu();
+                    }
+                  }}
+                >
+                  Delete Location
+                </Dropdown.Item>
+                <Dropdown.Item
+                  as={Link}
                   to="/update-result"
                   onClick={() => {
                     if (navbarCollapsed) {
@@ -121,17 +143,6 @@ const NavbarTop = () => {
                   }}
                 >
                   Update Result
-                </Dropdown.Item>
-                <Dropdown.Item
-                  as={Link}
-                  to="/update-location"
-                  onClick={() => {
-                    if (navbarCollapsed) {
-                      handleBurgerMenu();
-                    }
-                  }}
-                >
-                  Update Location
                 </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => {

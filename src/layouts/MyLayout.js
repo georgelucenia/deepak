@@ -52,6 +52,11 @@ const MyLayout = () => {
               exact
               component={UpdateLocationModal}
             />
+            <Route
+              path="/delete-location"
+              exact
+              component={UpdateLocationModal}
+            />
           </Switch>
           {pathname === '/' && <MyFooter />}
         </div>

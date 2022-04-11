@@ -12,7 +12,9 @@ const UpdateLocationModal = ({ history, location }) => {
   const [selectedLocation, setSelectedLocation] = useState({
     date: new Date().toDateString()
   });
+  const isUpdatingLocation = location?.pathname === '/update-location';
   const isUpdatingResult = location?.pathname === '/update-result';
+  const isDeleteLocation = location?.pathname === '/delete-location';
 
   const updateLocationHandler = () => {
     const newData = {
@@ -61,6 +63,27 @@ const UpdateLocationModal = ({ history, location }) => {
       });
   };
 
+  const deleteLocationHandler = () => {
+    const newData = {
+      locationId: selectedLocation['locationId']
+    };
+
+    setUpdating(true);
+    axios
+      .post(`https://royal-satta.herokuapp.com/api/v1/location/delete`, newData)
+      .then(() => {
+        history.push('/');
+        toast.success('Location Deleted');
+      })
+      .catch(err => {
+        toast.error('Unable to delete location');
+        console.log(err);
+      })
+      .finally(() => {
+        setUpdating(false);
+      });
+  };
+
   const { data, loading, error } = useFetch(
     `https://royal-satta.herokuapp.com/api/v1/location`
   );
@@ -92,7 +115,11 @@ const UpdateLocationModal = ({ history, location }) => {
       <Modal.Header className="bg-shape modal-shape-header px-4 position-relative">
         <div className="position-relative z-index-1 light">
           <h5 className="mb-0 text-white fs-0" id="authentication-modal-label">
-            {isUpdatingResult ? 'Update Result' : 'Update Location'}
+            {!isDeleteLocation
+              ? isUpdatingResult
+                ? 'Update Result'
+                : 'Update Location'
+              : 'Delete Location'}
           </h5>
         </div>
         <CloseButton
@@ -119,7 +146,7 @@ const UpdateLocationModal = ({ history, location }) => {
               </Form.Select>
             </Form.Group>
 
-            {!isUpdatingResult && (
+            {isUpdatingLocation && (
               <>
                 {' '}
                 <Form.Group className="mb-3">
@@ -189,17 +216,31 @@ const UpdateLocationModal = ({ history, location }) => {
               </>
             )}
 
-            <Button
-              type="button"
-              variant="primary"
-              className="mt-3 me-3"
-              disabled={updating}
-              onClick={
-                !isUpdatingResult ? updateLocationHandler : updateResultHandler
-              }
-            >
-              Update
-            </Button>
+            {!isDeleteLocation ? (
+              <Button
+                type="button"
+                variant="primary"
+                className="mt-3 me-3"
+                disabled={updating}
+                onClick={
+                  !isUpdatingResult
+                    ? updateLocationHandler
+                    : updateResultHandler
+                }
+              >
+                Update
+              </Button>
+            ) : (
+              <Button
+                type="button"
+                variant="danger"
+                className="mt-3 me-3"
+                disabled={updating}
+                onClick={deleteLocationHandler}
+              >
+                Delete
+              </Button>
+            )}
             <Button
               variant="secondary"
               className="mt-3"

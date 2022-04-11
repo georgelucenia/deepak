@@ -56,27 +56,15 @@ const Home = () => {
             </Card.Body>
           </Card>
           {recentResult?.result && (
-            <Card className="mb-5">
+            <Card className="mb-5 bg-gradient bg-warning">
               <Card.Body className="text-center">
-                <h2
-                  className={classNames(
-                    'font-sans-serif text-white dark__text-white fs-2'
-                  )}
-                >
+                <h2 className={classNames('text-dark fs-2')}>
                   {recentResult?.name}
                 </h2>
-                <h2
-                  className={classNames(
-                    'font-sans-serif text-white dark__text-white fs-0'
-                  )}
-                >
+                <h2 className={classNames('text-dark fs-0')}>
                   ( {recentResult?.timeLabel} )
                 </h2>
-                <h2
-                  className={classNames(
-                    'font-sans-serif text-white dark__text-white fs--1'
-                  )}
-                >
+                <h2 className={classNames('text-dark fs-2')}>
                   {recentResult?.result?.result}
                 </h2>
               </Card.Body>
