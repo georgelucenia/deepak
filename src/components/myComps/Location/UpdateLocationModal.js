@@ -25,7 +25,10 @@ const UpdateLocationModal = ({ history, location }) => {
     console.log(selectedLocation);
     setUpdating(true);
     axios
-      .post(`https://royal-satta.herokuapp.com/api/v1/location/update`, newData)
+      .post(
+        `https://royal-satta-server.herokuapp.com/api/v1/location/update`,
+        newData
+      )
       .then(() => {
         history.push('/');
         toast.success('Location Updated');
@@ -49,7 +52,10 @@ const UpdateLocationModal = ({ history, location }) => {
     // console.log(newData);
     setUpdating(true);
     axios
-      .post(`https://royal-satta.herokuapp.com/api/v1/result/update`, newData)
+      .post(
+        `https://royal-satta-server.herokuapp.com/api/v1/result/update`,
+        newData
+      )
       .then(() => {
         history.push('/');
         toast.success('Result Updated');
@@ -70,7 +76,10 @@ const UpdateLocationModal = ({ history, location }) => {
 
     setUpdating(true);
     axios
-      .post(`https://royal-satta.herokuapp.com/api/v1/location/delete`, newData)
+      .post(
+        `https://royal-satta-server.herokuapp.com/api/v1/location/delete`,
+        newData
+      )
       .then(() => {
         history.push('/');
         toast.success('Location Deleted');
@@ -85,7 +94,7 @@ const UpdateLocationModal = ({ history, location }) => {
   };
 
   const { data, loading, error } = useFetch(
-    `https://royal-satta.herokuapp.com/api/v1/location`
+    `https://royal-satta-server.herokuapp.com/api/v1/location`
   );
 
   useEffect(() => {

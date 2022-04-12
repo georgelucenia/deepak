@@ -12,7 +12,10 @@ const AddNewLocationModal = ({ history }) => {
   const addLocationHandler = () => {
     setLoading(true);
     axios
-      .post(`https://royal-satta.herokuapp.com/api/v1/location`, locationData)
+      .post(
+        `https://royal-satta-server.herokuapp.com/api/v1/location`,
+        locationData
+      )
       .then(() => {
         history.push('/');
         toast.success('New Location Added');

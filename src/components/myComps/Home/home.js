@@ -10,10 +10,10 @@ import PreviousMonthChart from './PreviousMonthChart';
 const Home = () => {
   // https://royal-satta.herokuapp.com
   const { data, loading, error } = useFetch(
-    `https://royal-satta.herokuapp.com/api/v1/result/getTodayResult`
+    `https://royal-satta-server.herokuapp.com/api/v1/result/getTodayResult`
   );
   const { data: recentResultData } = useFetch(
-    `https://royal-satta.herokuapp.com/api/v1/result/getRecentResult`
+    `https://royal-satta-server.herokuapp.com/api/v1/result/getRecentResult`
   );
   const [locations, setLocations] = useState([]);
   const [recentResult, setRecentResult] = useState(null);
