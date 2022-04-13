@@ -55,9 +55,11 @@ const NavbarTop = () => {
 
   useEffect(() => {
     if (localStorage.getItem('dsfajndjn') === 'asddsa') {
-      onLogout();
+      history.push('/');
+      localStorage.removeItem('dsfajndjn');
+      setIsAdmin(false);
     }
-  });
+  }, []);
 
   return (
     <>
