@@ -21,7 +21,7 @@ const MyLoginForm = () => {
         .post(`https://royal-satta-server.herokuapp.com/api/v1/login`, formData)
         .then(() => {
           history.push('/');
-          localStorage.setItem('dsfajndjn', 'asddsa');
+          localStorage.setItem('iopiop', 'njisde');
           toast.success('Login Successful.');
         })
         .catch(err => {

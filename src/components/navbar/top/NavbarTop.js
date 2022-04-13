@@ -39,7 +39,7 @@ const NavbarTop = () => {
 
   const onLogout = () => {
     history.push('/');
-    localStorage.removeItem('dsfajndjn');
+    localStorage.removeItem('iopiop');
     toast.success('Logged out successfully');
     setIsAdmin(false);
   };
@@ -50,7 +50,13 @@ const NavbarTop = () => {
   }, []);
 
   useEffect(() => {
-    setIsAdmin(localStorage.getItem('dsfajndjn') === 'asddsa');
+    setIsAdmin(localStorage.getItem('iopiop') === 'njisde');
+  });
+
+  useEffect(() => {
+    if (localStorage.getItem('dsfajndjn') === 'asddsa') {
+      onLogout();
+    }
   });
 
   return (
