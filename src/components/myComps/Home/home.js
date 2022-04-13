@@ -119,7 +119,7 @@ const Home = () => {
                               </span>
                               <br />
                               <span className="text-dark fs--1 mt-2">
-                                Record Chart
+                                Result Time
                               </span>
                             </td>
                             <td>
