@@ -8,6 +8,7 @@ import Home from 'components/myComps/Home/home';
 import Login from 'components/myComps/Login/login';
 import AddNewLocationModal from 'components/myComps/Location/AddNewLocationModal';
 import UpdateLocationModal from 'components/myComps/Location/UpdateLocationModal';
+import AddBlankResults from 'components/myComps/Result/AddBlankResults';
 import MyFooter from 'data/footer/MyFooter';
 
 const MyLayout = () => {
@@ -57,6 +58,7 @@ const MyLayout = () => {
               exact
               component={UpdateLocationModal}
             />
+            <Route path="/add-blank-result" exact component={AddBlankResults} />
           </Switch>
           {pathname === '/' && <MyFooter />}
         </div>

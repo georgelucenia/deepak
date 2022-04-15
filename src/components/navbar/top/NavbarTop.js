@@ -153,6 +153,18 @@ const NavbarTop = () => {
                   Update Result
                 </Dropdown.Item>
                 <Dropdown.Item
+                  as={Link}
+                  to="/add-blank-result"
+                  onClick={() => {
+                    if (navbarCollapsed) {
+                      handleBurgerMenu();
+                      // setShowUpdateResultModal(true);
+                    }
+                  }}
+                >
+                  Add Blank Entries
+                </Dropdown.Item>
+                <Dropdown.Item
                   onClick={() => {
                     onLogout();
                   }}
