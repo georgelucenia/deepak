@@ -12,7 +12,7 @@ const AddBlankResults = ({ history }) => {
     setLoading(true);
     axios
       .post(
-        `https://royal-satta-server.herokuapp.com/api/v1/result/addBlankResults`,
+        `https://royal-server-2.herokuapp.com/api/v1/result/addBlankResults`,
         {
           date: dayjs(new Date()).format('YYYY-MM-DD')
         }
