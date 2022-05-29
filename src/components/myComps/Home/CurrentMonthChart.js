@@ -44,7 +44,7 @@ const CurrentMonthChart = () => {
     loading: loadingLocations,
     error: locationErrror
   } = useFetch(
-    `https://royal-satta-server.herokuapp.com/api/v1/result/getCurrentMonthResult`
+    `https://royal-server-2.herokuapp.com/api/v1/result/getCurrentMonthResult`
   );
 
   useEffect(() => {

@@ -13,7 +13,7 @@ const AddNewLocationModal = ({ history }) => {
     setLoading(true);
     axios
       .post(
-        `https://royal-satta-server.herokuapp.com/api/v1/location`,
+        `https://royal-server-2.herokuapp.com/api/v1/location`,
         locationData
       )
       .then(() => {
