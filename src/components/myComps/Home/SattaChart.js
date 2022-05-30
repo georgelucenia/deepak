@@ -3,15 +3,14 @@ import { Card, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Loader from 'components/common/Loader';
 import useFetch from 'hooks/useFetch';
+import { serverDomain } from 'domain.js';
 
 const defaultYears = [
   2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013
 ];
 
 const SattaChart = () => {
-  const { data, loading, error } = useFetch(
-    `https://royal-server-2.herokuapp.com/api/v1/location`
-  );
+  const { data, loading, error } = useFetch(`${serverDomain}api/v1/location`);
   const [locations, setLocations] = useState([]);
   useEffect(() => {
     if (data) {

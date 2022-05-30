@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import dayjs from 'dayjs';
+import { serverDomain } from 'domain.js';
 
 const AddBlankResults = ({ history }) => {
   const [loading, setLoading] = useState(false);
@@ -11,12 +12,9 @@ const AddBlankResults = ({ history }) => {
   const updateLocationHandler = () => {
     setLoading(true);
     axios
-      .post(
-        `https://royal-server-2.herokuapp.com/api/v1/result/addBlankResults`,
-        {
-          date: dayjs(new Date()).format('YYYY-MM-DD')
-        }
-      )
+      .post(`${serverDomain}api/v1/result/addBlankResults`, {
+        date: dayjs(new Date()).format('YYYY-MM-DD')
+      })
       .then(() => {
         history.push('/');
         toast.success('New results added');

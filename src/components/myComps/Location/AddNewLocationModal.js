@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Loader from 'components/common/Loader';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { serverDomain } from 'domain.js';
 
 const AddNewLocationModal = ({ history }) => {
   const [loading, setLoading] = useState(false);
@@ -12,10 +13,7 @@ const AddNewLocationModal = ({ history }) => {
   const addLocationHandler = () => {
     setLoading(true);
     axios
-      .post(
-        `https://royal-server-2.herokuapp.com/api/v1/location`,
-        locationData
-      )
+      .post(`${serverDomain}api/v1/location`, locationData)
       .then(() => {
         history.push('/');
         toast.success('New Location Added');

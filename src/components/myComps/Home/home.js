@@ -6,14 +6,15 @@ import classNames from 'classnames';
 import useFetch from 'hooks/useFetch';
 import CurrentMonthChart from './CurrentMonthChart';
 import PreviousMonthChart from './PreviousMonthChart';
+import { serverDomain } from 'domain.js';
 
 const Home = () => {
   // https://royal-satta.herokuapp.com
   const { data, loading, error } = useFetch(
-    `https://royal-server-2.herokuapp.com/api/v1/result/getTodayResult`
+    `${serverDomain}api/v1/result/getTodayResult`
   );
   const { data: recentResultData } = useFetch(
-    `https://royal-server-2.herokuapp.com/api/v1/result/getRecentResult`
+    `${serverDomain}api/v1/result/getRecentResult`
   );
   const [locations, setLocations] = useState([]);
   const [recentResult, setRecentResult] = useState(null);

@@ -3,6 +3,7 @@ import { Card, Table } from 'react-bootstrap';
 import Loader from 'components/common/Loader';
 import useFetch from 'hooks/useFetch';
 import dayjs from 'dayjs';
+import { serverDomain } from 'domain.js';
 
 const months = [
   'January',
@@ -39,7 +40,7 @@ const datesArray = () => {
 
 const PreviousMonthChart = () => {
   const { data, loading, error } = useFetch(
-    `https://royal-server-2.herokuapp.com/api/v1/result/getPreviousMonthResult`
+    `${serverDomain}api/v1/result/getPreviousMonthResult`
   );
   const [locations, setLocations] = useState([]);
 

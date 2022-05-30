@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import Loader from 'components/common/Loader';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { serverDomain } from 'domain.js';
 
 const MyLoginForm = () => {
   const history = useHistory();
@@ -18,7 +19,7 @@ const MyLoginForm = () => {
     if (formData.username !== '' && formData.password !== '') {
       setLoading(true);
       axios
-        .post(`https://royal-server-2.herokuapp.com/api/v1/login`, formData)
+        .post(`${serverDomain}api/v1/login`, formData)
         .then(() => {
           history.push('/');
           localStorage.setItem('iopiop', 'njisde');

@@ -5,6 +5,7 @@ import Loader from 'components/common/Loader';
 import useFetch from 'hooks/useFetch';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { serverDomain } from 'domain.js';
 
 const UpdateLocationModal = ({ history, location }) => {
   const [locations, setLocations] = useState([]);
@@ -25,10 +26,7 @@ const UpdateLocationModal = ({ history, location }) => {
     console.log(selectedLocation);
     setUpdating(true);
     axios
-      .post(
-        `https://royal-server-2.herokuapp.com/api/v1/location/update`,
-        newData
-      )
+      .post(`${serverDomain}api/v1/location/update`, newData)
       .then(() => {
         history.push('/');
         toast.success('Location Updated');
@@ -52,10 +50,7 @@ const UpdateLocationModal = ({ history, location }) => {
     // console.log(newData);
     setUpdating(true);
     axios
-      .post(
-        `https://royal-server-2.herokuapp.com/api/v1/result/update`,
-        newData
-      )
+      .post(`${serverDomain}api/v1/result/update`, newData)
       .then(() => {
         history.push('/');
         toast.success('Result Updated');
@@ -76,10 +71,7 @@ const UpdateLocationModal = ({ history, location }) => {
 
     setUpdating(true);
     axios
-      .post(
-        `https://royal-server-2.herokuapp.com/api/v1/location/delete`,
-        newData
-      )
+      .post(`${serverDomain}api/v1/location/delete`, newData)
       .then(() => {
         history.push('/');
         toast.success('Location Deleted');
@@ -93,9 +85,7 @@ const UpdateLocationModal = ({ history, location }) => {
       });
   };
 
-  const { data, loading, error } = useFetch(
-    `https://royal-server-2.herokuapp.com/api/v1/location`
-  );
+  const { data, loading, error } = useFetch(`${serverDomain}api/v1/location`);
 
   useEffect(() => {
     if (data) {
