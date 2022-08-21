@@ -4,6 +4,7 @@ import Loader from 'components/common/Loader';
 import useFetch from 'hooks/useFetch';
 import dayjs from 'dayjs';
 import { serverDomain } from 'domain.js';
+import _ from 'lodash';
 
 const months = [
   'January',
@@ -46,7 +47,32 @@ const PreviousMonthChart = () => {
 
   useEffect(() => {
     if (data) {
-      setLocations(data.data);
+      // setLocations(data.data);
+      let allData = [];
+      let ids = [
+        '625546b2b221e5f47af29de1',
+        '62554351b221e5f47af29b44',
+        '625543bbb221e5f47af29b7b',
+        '625543f9b221e5f47af29bbb',
+        '62554469b221e5f47af29bf2',
+        '62554496b221e5f47af29c29',
+        '625544cab221e5f47af29c60',
+        '625544f1b221e5f47af29c97',
+        '62554525b221e5f47af29cce',
+        '6255456cb221e5f47af29d05',
+        '625545a2b221e5f47af29d3c',
+        '625545ffb221e5f47af29d73',
+        '62554629b221e5f47af29daa'
+      ];
+
+      let res = _.sortBy(data.data, [
+        function (item) {
+          return ids.indexOf(item.location.id) !== -1
+            ? ids.indexOf(item.location.id)
+            : allData.length;
+        }
+      ]);
+      setLocations(res);
     }
   }, [data]);
 
