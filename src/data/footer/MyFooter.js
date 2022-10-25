@@ -6,7 +6,7 @@ const MyFooter = () => {
     <div className="mt-5">
       <h5 className="text-uppercase text-dark opacity-85 mb-3">Disclaimer</h5>
       <p className="text-600">
-        Royalsatta.com is a non-commercial website. Viewing this website is your
+        Royal-Satta.in is a non-commercial website. Viewing this website is your
         own risk, all the information shown on website is sponsored and we warn
         you that satta may be banned or illegal in your country. We are not
         responsible for any issues or scam. We respect all country rules/laws.
