@@ -50,13 +50,13 @@ const NavbarTop = () => {
   }, []);
 
   useEffect(() => {
-    setIsAdmin(localStorage.getItem('iopiop') === 'njisde');
+    setIsAdmin(localStorage.getItem('jsadkdknsa') === 'uyhgfgv');
   });
 
   useEffect(() => {
-    if (localStorage.getItem('dsfajndjn') === 'asddsa') {
+    if (localStorage.getItem('iopiop') === 'njisde') {
       history.push('/');
-      localStorage.removeItem('dsfajndjn');
+      localStorage.removeItem('iopiop');
       setIsAdmin(false);
     }
   }, []);
