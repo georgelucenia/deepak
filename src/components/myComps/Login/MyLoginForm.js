@@ -22,7 +22,7 @@ const MyLoginForm = () => {
         .post(`${serverDomain}api/v1/login`, formData)
         .then(() => {
           history.push('/');
-          localStorage.setItem('iopiop', 'njisde');
+          localStorage.setItem('jsadkdknsa', 'uyhgfgv');
           toast.success('Login Successful.');
         })
         .catch(err => {
