@@ -320,7 +320,7 @@ export const pagesRoutes = {
           children: [
             {
               name: 'Login',
-              to: '/authentication/split/login',
+              to: '/authenticatioplit/login',
               active: true
             },
             {
@@ -344,7 +344,7 @@ export const pagesRoutes = {
               active: true
             },
             {
-              name: 'Reset password',
+              name: 'Reset passwor,
               to: '/authentication/split/reset-password',
               active: true
             },
@@ -405,7 +405,7 @@ export const pagesRoutes = {
       name: 'Faq',
       icon: 'question-circle',
       active: true,
-      children: [
+      childr
         {
           name: 'Faq basic',
           to: '/faq/faq-basic',
@@ -483,7 +483,7 @@ export const modulesRoutes = {
               active: true
             },
             {
-              name: 'Input group',
+              name: 'Input 
               to: '/forms/basic/input-group',
               active: true
             },
