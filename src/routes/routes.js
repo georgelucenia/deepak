@@ -191,16 +191,7 @@ export const appRoutes = {
           to: '/social/feed',
           active: true
         },
-        {
-          name: 'Activity log',
-          to: '/social/activity-log',
-          active: true
-        },
-        {
-          name: 'Notifications',
-          to: '/social/notifications',
-          active: true
-        },
+     ,
         {
           name: 'Followers',
           to: '/social/followers',
@@ -245,22 +236,7 @@ export const pagesRoutes = {
               to: '/authentication/simple/logout',
               active: true
             },
-            {
-              name: 'Register',
-              to: '/authentication/simple/register',
-              active: true
-            },
-            {
-              name: 'Forgot password',
-              to: '/authentication/simple/forgot-password',
-              active: true
-            },
-            {
-              name: 'Confirm mail',
-              to: '/authentication/simple/confirm-mail',
-              active: true
-            },
-            {
+        
               name: 'Reset password',
               to: '/authentication/simple/reset-password',
               active: true
@@ -372,19 +348,7 @@ export const pagesRoutes = {
       icon: 'user',
       active: true,
       children: [
-        {
-          name: 'Profile',
-          to: '/user/profile',
-          active: true
-        },
-        {
-          name: 'Settings',
-          to: '/user/settings',
-          active: true
-        }
-      ]
-    },
-    {
+       
       name: 'Pricing',
       icon: 'tags',
       active: true,
@@ -422,30 +386,7 @@ export const pagesRoutes = {
           active: true
         }
       ]
-    },
-    {
-      name: 'Errors',
-      active: true,
-      icon: 'exclamation-triangle',
-      children: [
-        {
-          name: '404',
-          to: '/errors/404',
-          active: true
-        },
-        {
-          name: '500',
-          to: '/errors/500',
-          active: true
-        }
-      ]
-    },
-    {
-      name: 'Miscellaneous',
-      icon: 'thumbtack',
-      active: true,
-      children: [
-        {
+
           name: 'Associations',
           to: '/miscellaneous/associations',
           active: true
@@ -486,30 +427,7 @@ export const modulesRoutes = {
               name: 'Input 
               to: '/forms/basic/input-group',
               active: true
-            },
-            {
-              name: 'Select',
-              to: '/forms/basic/select',
-              active: true
-            },
-            {
-              name: 'Checks',
-              to: '/forms/basic/checks',
-              active: true
-            },
-            {
-              name: 'Range',
-              to: '/forms/basic/range',
-              active: true
-            },
-            {
-              name: 'Layout',
-              to: '/forms/basic/layout',
-              active: true
-            }
-          ]
-        },
-        {
+            
           name: 'Advance',
           active: true,
           children: [
@@ -559,20 +477,7 @@ export const modulesRoutes = {
           name: 'Validation',
           to: '/forms/validation',
           active: true
-        }
-      ]
-    },
-    {
-      name: 'Tables',
-      icon: 'table',
-      active: true,
-      children: [
-        {
-          name: 'Basic tables',
-          to: '/tables/basic-tables',
-          active: true
-        },
-        {
+      
           name: 'Advance tables',
           to: '/tables/advance-tables',
           active: true
@@ -618,30 +523,6 @@ export const modulesRoutes = {
               to: '/charts/echarts/geo-map',
               active: true
             },
-            {
-              name: 'Scatter charts',
-              to: '/charts/echarts/scatter-charts',
-              active: true
-            },
-            {
-              name: 'Pie charts',
-              to: '/charts/echarts/pie-charts',
-              active: true
-            },
-            {
-              name: 'Radar charts',
-              to: '/charts/echarts/radar-charts',
-              active: true
-            },
-            {
-              name: 'Heatmap charts',
-              to: '/charts/echarts/heatmap-charts',
-              active: true
-            }
-          ]
-        }
-      ]
-    },
     {
       name: 'Icons',
       active: true,
@@ -713,30 +594,7 @@ export const modulesRoutes = {
         },
         {
           name: 'Buttons',
-          to: '/components/buttons',
-          active: true
-        },
-        {
-          name: 'Calendar',
-          to: '/components/calendar',
-          active: true
-        },
-        {
-          name: 'Cards',
-          to: '/components/cards',
-          active: true
-        },
-        {
-          name: 'Carousel',
-          active: true,
-          children: [
-            {
-              name: 'Bootstrap',
-              to: '/components/carousel/bootstrap',
-              label: 'bootstrap-carousel',
-              active: true
-            },
-            {
+       
               name: 'Slick',
               to: '/components/carousel/slick',
               active: true
@@ -854,28 +712,7 @@ export const modulesRoutes = {
           name: 'Progress Bar',
           to: '/components/progress-bar',
           active: true
-        },
-        {
-          name: 'Pagination',
-          to: '/components/pagination',
-          active: true
-        },
-        {
-          name: 'Placeholder',
-          to: '/components/placeholder',
-          active: true
-        },
-        {
-          name: 'Popovers',
-          to: '/components/popovers',
-          active: true
-        },
-        {
-          name: 'Scrollspy',
-          to: '/components/scrollspy',
-          active: true
-        },
-        {
+ 
           name: 'Search',
           to: '/components/search',
           active: true
@@ -1017,86 +854,7 @@ export const modulesRoutes = {
       active: true
     },
     {
-      name: 'Multi level',
-      active: true,
-      icon: 'layer-group',
-      children: [
-        {
-          name: 'Level two',
-          active: true,
-          children: [
-            {
-              name: 'Item 1',
-              active: true,
-              to: '#!'
-            },
-            {
-              name: 'Item 2',
-              active: true,
-              to: '#!'
-            }
-          ]
-        },
-        {
-          name: 'Level three',
-          active: true,
-          children: [
-            {
-              name: 'Item 3',
-              active: true,
-              to: '#!'
-            },
-            {
-              name: 'Item 4',
-              active: true,
-              children: [
-                {
-                  name: 'Item 5',
-                  active: true,
-                  to: '#!'
-                },
-                {
-                  name: 'Item 6',
-                  active: true,
-                  to: '#!'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          name: 'Level four',
-          active: true,
-          children: [
-            {
-              name: 'Item 6',
-              active: true,
-              to: '#!'
-            },
-            {
-              name: 'Item 7',
-              active: true,
-              children: [
-                {
-                  name: 'Item 8',
-                  active: true,
-                  to: '#!'
-                },
-                {
-                  name: 'Item 9',
-                  active: true,
-                  children: [
-                    {
-                      name: 'Item 10',
-                      active: true,
-                      to: '#!'
-                    },
-                    {
-                      name: 'Item 11',
-                      active: true,
-                      to: '#!'
-                    }
-                  ]
+    
                 }
               ]
             }
